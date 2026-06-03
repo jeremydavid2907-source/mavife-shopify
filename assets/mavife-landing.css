@@ -1,0 +1,29 @@
+*{box-sizing:border-box}
+body{margin:0}
+.mavife-hero{
+background:#f5f1eb;
+padding:120px 20px;
+font-family:DM Sans,sans-serif
+}
+.mavife-container{
+max-width:1200px;
+margin:auto
+}
+.mavife-copy h1{
+font-size:72px;
+line-height:.9;
+margin:0 0 20px;
+text-transform:uppercase
+}
+.mavife-copy p{
+font-size:18px;
+max-width:600px
+}
+.mavife-btn{
+display:inline-block;
+background:#000;
+color:#fff;
+padding:14px 24px;
+text-decoration:none;
+margin-top:20px
+}
