@@ -1,0 +1,86 @@
+<section class="hero" id="inicio">
+  <div class="hero-bg">
+    {%- if section.settings.hero_image != blank -%}
+      <img
+        src="{{ section.settings.hero_image | image_url: width: 2000 }}"
+        alt="{{ section.settings.hero_image.alt | default: shop.name }}"
+        class="hero-photo"
+        loading="eager"
+      />
+    {%- endif -%}
+  </div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-inner">
+    <div class="hero-badge">{{ section.settings.badge_text }}</div>
+    <h1 class="hero-title">{{ section.settings.hero_title }}</h1>
+    <p class="hero-sub">{{ section.settings.hero_subtitle }}</p>
+    <div class="hero-actions">
+      <a href="{{ section.settings.cta_primary_url | default: '#personalizar' }}" class="btn-primary">
+        {{ section.settings.cta_primary_text }}
+      </a>
+      <a href="{{ section.settings.cta_secondary_url | default: '#coleccion' }}" class="btn-outline">
+        {{ section.settings.cta_secondary_text }}
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span>Descubrir</span>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero MAVIFE",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Foto de fondo del hero"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Texto badge superior",
+      "default": "✦ Nueva Colección Verano 2026"
+    },
+    {
+      "type": "html",
+      "id": "hero_title",
+      "label": "Título (acepta HTML: <br> <em>)",
+      "default": "Vistan<br><em>su historia</em>"
+    },
+    {
+      "type": "text",
+      "id": "hero_subtitle",
+      "label": "Subtítulo",
+      "default": "Ropa personalizada para parejas, diseñada para crear recuerdos inolvidables."
+    },
+    {
+      "type": "text",
+      "id": "cta_primary_text",
+      "label": "Texto botón principal",
+      "default": "Personalizar ahora"
+    },
+    {
+      "type": "url",
+      "id": "cta_primary_url",
+      "label": "URL botón principal"
+    },
+    {
+      "type": "text",
+      "id": "cta_secondary_text",
+      "label": "Texto botón secundario",
+      "default": "Ver colección de verano"
+    },
+    {
+      "type": "url",
+      "id": "cta_secondary_url",
+      "label": "URL botón secundario"
+    }
+  ],
+  "presets": [{ "name": "Hero MAVIFE" }]
+}
+{% endschema %}

@@ -1,0 +1,107 @@
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+
+      <!-- Marca -->
+      <div class="footer-brand">
+        <div class="footer-brand-logo">
+          {%- if settings.logo != blank -%}
+            <img src="{{ settings.logo | image_url: width: 160 }}" alt="{{ shop.name }}" class="logo-img" style="height:38px;filter:none!important;" />
+          {%- else -%}
+            <span style="font-family:'Playfair Display',Georgia,serif;font-size:1.4rem;font-weight:600;letter-spacing:0.15em;color:#fff;">{{ shop.name }}</span>
+          {%- endif -%}
+        </div>
+        <p class="footer-brand-sub">{{ section.settings.brand_sub }}</p>
+        <div class="footer-socials">
+          {%- if settings.instagram != blank -%}
+            <a href="{{ settings.instagram }}" class="footer-social" aria-label="Instagram" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          {%- endif -%}
+          {%- if settings.tiktok != blank -%}
+            <a href="{{ settings.tiktok }}" class="footer-social" aria-label="TikTok" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12a4 4 0 104 4V4a5 5 0 005 5"/></svg>
+            </a>
+          {%- endif -%}
+          {%- if settings.pinterest != blank -%}
+            <a href="{{ settings.pinterest }}" class="footer-social" aria-label="Pinterest" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <!-- Tienda -->
+      <div class="footer-col">
+        <p class="footer-col-title">Tienda</p>
+        <ul>
+          <li><a href="/collections/all">Colección Verano</a></li>
+          <li><a href="/collections/camisetas">Camisetas</a></li>
+          <li><a href="/collections/camisas">Camisas</a></li>
+          <li><a href="/collections/gorras">Gorras</a></li>
+          <li><a href="/collections/conjuntos">Conjuntos</a></li>
+          <li><a href="/collections/accesorios">Accesorios</a></li>
+        </ul>
+      </div>
+
+      <!-- Información -->
+      <div class="footer-col">
+        <p class="footer-col-title">Información</p>
+        <ul>
+          <li><a href="/pages/como-personalizar">Cómo personalizar</a></li>
+          <li><a href="/pages/guia-de-tallas">Guía de tallas</a></li>
+          <li><a href="/pages/materiales">Materiales</a></li>
+          <li><a href="/pages/envios">Envíos y plazos</a></li>
+          <li><a href="/pages/devoluciones">Devoluciones</a></li>
+          <li><a href="/pages/faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <!-- Contacto -->
+      <div class="footer-col">
+        <p class="footer-col-title">Contacto</p>
+        <ul>
+          {%- if settings.contact_email != blank -%}
+            <li><a href="mailto:{{ settings.contact_email }}">{{ settings.contact_email }}</a></li>
+          {%- endif -%}
+          {%- if settings.instagram != blank -%}
+            <li><a href="{{ settings.instagram }}" target="_blank" rel="noopener">Instagram @{{ shop.name | downcase }}</a></li>
+          {%- endif -%}
+          {%- if settings.whatsapp != blank -%}
+            <li><a href="https://wa.me/{{ settings.whatsapp }}" target="_blank" rel="noopener">WhatsApp</a></li>
+          {%- endif -%}
+        </ul>
+      </div>
+
+    </div><!-- /footer-top -->
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© {{ 'now' | date: '%Y' }} {{ shop.name }}. Todos los derechos reservados.</p>
+      <div class="footer-legal">
+        {%- if shop.privacy_policy != blank -%}
+          <a href="{{ shop.privacy_policy.url }}">Política de privacidad</a>
+        {%- endif -%}
+        {%- if shop.terms_of_service != blank -%}
+          <a href="{{ shop.terms_of_service.url }}">Términos y condiciones</a>
+        {%- endif -%}
+        {%- if shop.refund_policy != blank -%}
+          <a href="{{ shop.refund_policy.url }}">Política de cookies</a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer MAVIFE",
+  "settings": [
+    {
+      "type": "text",
+      "id": "brand_sub",
+      "label": "Texto descripción marca",
+      "default": "Ropa personalizada para parejas. Diseñamos prendas que cuentan historias reales."
+    }
+  ]
+}
+{% endschema %}

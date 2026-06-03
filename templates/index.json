@@ -1,290 +1,149 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */{
+{
+  "layout": "mavife-landing",
   "sections": {
-    "hero_jVaWmY": {
-      "type": "hero",
-      "blocks": {
-        "text_YLPk4p": {
-          "type": "text",
-          "name": "t:names.heading",
-          "settings": {
-            "text": "<p>Browse our latest products</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h2",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground-heading)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "button_H9gpTf": {
-          "type": "button",
-          "name": "t:names.button",
-          "settings": {
-            "label": "Shop all",
-            "link": "shopify://collections/all",
-            "open_in_new_tab": false,
-            "style_class": "button-secondary",
-            "width": "fit-content",
-            "custom_width": 100,
-            "width_mobile": "fit-content",
-            "custom_width_mobile": 100
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "text_YLPk4p",
-        "button_H9gpTf"
-      ],
-      "name": "t:names.hero",
+    "mavife_hero": {
+      "type": "mavife-hero",
       "settings": {
-        "media_type_1": "image",
-        "media_type_2": "image",
-        "stack_media_on_mobile": false,
-        "custom_mobile_media": false,
-        "media_type_1_mobile": "image",
-        "media_type_2_mobile": "image",
-        "open_in_new_tab": false,
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "space-between",
-        "vertical_alignment": "flex-end",
-        "align_baseline": true,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "flex-end",
-        "gap": 24,
-        "section_width": "page-width",
-        "section_height": "medium",
-        "section_height_custom": 50,
-        "color_scheme": "scheme-6",
-        "toggle_overlay": true,
-        "overlay_color": "#12121266",
-        "overlay_style": "solid",
-        "gradient_direction": "to bottom",
-        "blurred_reflection": false,
-        "reflection_opacity": 75,
-        "padding-block-start": 100,
-        "padding-block-end": 72
+        "badge_text": "✦ Nueva Colección Verano 2026",
+        "hero_title": "Vistan<br><em>su historia</em>",
+        "hero_subtitle": "Ropa personalizada para parejas, diseñada para crear recuerdos inolvidables.",
+        "cta_primary_text": "Personalizar ahora",
+        "cta_secondary_text": "Ver colección de verano"
       }
     },
-    "product_list_fa6P9H": {
-      "type": "product-list",
+    "mavife_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "label": "Colección Verano 2026",
+        "title": "Prendas que cuentan<br><em>su historia</em>",
+        "subtitle": "Diseños exclusivos para parejas que quieren compartir más que momentos — quieren compartir su estilo."
+      }
+    },
+    "mavife_process": {
+      "type": "how-it-works",
       "blocks": {
-        "static-header": {
-          "type": "_product-list-content",
-          "name": "t:names.header",
-          "static": true,
+        "step_1": {
+          "type": "step",
           "settings": {
-            "content_direction": "row",
-            "vertical_on_mobile": false,
-            "horizontal_alignment": "space-between",
-            "vertical_alignment": "flex-end",
-            "align_baseline": true,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_list_text_YFtzcL": {
-              "type": "_product-list-text",
-              "name": "t:names.collection_title",
-              "settings": {
-                "text": "<h3>{{ closest.collection.title }}</h3>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h4",
-                "font": "var(--font-body--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_list_button_MWeP9V": {
-              "type": "_product-list-button",
-              "name": "t:names.product_list_button",
-              "settings": {
-                "label": "View all",
-                "open_in_new_tab": false,
-                "style_class": "link",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_list_text_YFtzcL",
-            "product_list_button_MWeP9V"
-          ]
+            "step_title": "Elige tu prenda",
+            "step_desc": "Selecciona entre nuestra colección de camisetas, camisas, gorras, sudaderas y más accesorios."
+          }
         },
-        "static-product-card": {
-          "type": "_product-card",
-          "name": "t:names.product_card",
-          "static": true,
+        "step_2": {
+          "type": "step",
           "settings": {
-            "product_card_gap": 4,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_card_gallery_677WP3": {
-              "type": "_product-card-gallery",
-              "name": "t:names.product_card_media",
-              "settings": {
-                "image_ratio": "adapt",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_title_YXxMTj": {
-              "type": "product-title",
-              "name": "t:names.product_title",
-              "settings": {
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 4,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "price_JQzVV4": {
-              "type": "price",
-              "name": "t:names.product_price",
-              "settings": {
-                "show_sale_price_first": true,
-                "show_installments": false,
-                "show_tax_info": false,
-                "type_preset": "h6",
-                "width": "100%",
-                "alignment": "left",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "color": "var(--color-foreground)",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_card_gallery_677WP3",
-            "product_title_YXxMTj",
-            "price_JQzVV4"
-          ]
+            "step_title": "Agreguen su esencia",
+            "step_desc": "Nombres, fechas especiales, coordenadas del lugar donde se conocieron, frases que los definen."
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "step_title": "Reciban su historia",
+            "step_desc": "Una prenda única creada exclusivamente para ustedes, enviada directamente a su puerta."
+          }
         }
       },
-      "name": "Featured collection",
+      "blocks_order": ["step_1", "step_2", "step_3"],
       "settings": {
-        "collection": "all",
-        "layout_type": "grid",
-        "carousel_on_mobile": false,
-        "max_products": 8,
-        "columns": 4,
-        "mobile_columns": "2",
-        "mobile_card_size": "60cqw",
-        "columns_gap": 8,
-        "rows_gap": 24,
-        "icons_style": "arrow",
-        "icons_shape": "none",
-        "section_width": "page-width",
-        "horizontal_alignment": "flex-start",
-        "gap": 28,
-        "color_scheme": "scheme-1",
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "label": "Cómo funciona",
+        "title": "Tan sencillo como<br><em>su amor</em>",
+        "subtitle": "Tres pasos para crear la prenda que los representa.",
+        "cta_text": "Comenzar ahora →"
+      }
+    },
+    "mavife_philosophy": {
+      "type": "philosophy",
+      "settings": {
+        "quote": "\"No vendemos únicamente ropa.<br>Creamos <strong>recuerdos que pueden llevar puestos</strong>.\"",
+        "sub_text": "Cada prenda MAVIFE nace de una historia real. De una fecha que no olvidan, de unas coordenadas que lo cambiaron todo, de un nombre que quieren llevar cerca.",
+        "cta_text": "Crear su prenda"
+      }
+    },
+    "mavife_gallery": {
+      "type": "gallery",
+      "blocks": {
+        "img_1": { "type": "image", "settings": { "caption": "Su historia" } },
+        "img_2": { "type": "image", "settings": { "caption": "Camisetas personalizadas" } },
+        "img_3": { "type": "image", "settings": { "caption": "Gorras bordadas" } },
+        "img_4": { "type": "image", "settings": { "caption": "Cada detalle importa" } },
+        "img_5": { "type": "image", "settings": { "caption": "Colección Verano 2026" } },
+        "img_6": { "type": "image", "settings": { "caption": "Camisa Lino Couple" } },
+        "img_7": { "type": "image", "settings": { "caption": "Pack Parejas" } },
+        "img_8": { "type": "image", "settings": { "caption": "Momentos que perduran" } },
+        "img_9": { "type": "image", "settings": { "caption": "Accesorios personalizados" } }
+      },
+      "blocks_order": ["img_1","img_2","img_3","img_4","img_5","img_6","img_7","img_8","img_9"],
+      "settings": {
+        "label": "Galería",
+        "title": "Historias reales,<br><em>prendas únicas</em>",
+        "subtitle": "Cada imagen es una pareja. Cada prenda, una historia.",
+        "cta_text": "Ver más en Instagram"
+      }
+    },
+    "mavife_features": {
+      "type": "features",
+      "blocks": {
+        "f1": { "type": "feature", "settings": { "feature_name": "Diseños 100% exclusivos",    "feature_desc": "Cada prenda es única. Nadie más tendrá el mismo diseño que ustedes." } },
+        "f2": { "type": "feature", "settings": { "feature_name": "Personalización completa",   "feature_desc": "Nombres, fechas, frases, coordenadas, ilustraciones — lo que queráis, como queráis." } },
+        "f3": { "type": "feature", "settings": { "feature_name": "Materiales premium",         "feature_desc": "Algodón orgánico, lino natural y tejidos seleccionados para la máxima comodidad y durabilidad." } },
+        "f4": { "type": "feature", "settings": { "feature_name": "Envíos en 7-10 días",       "feature_desc": "Recibirán su prenda personalizada en menos de dos semanas desde que la diseñen." } },
+        "f5": { "type": "feature", "settings": { "feature_name": "El regalo perfecto",         "feature_desc": "Aniversarios, San Valentín, cumpleaños, viajes… cualquier momento merece una prenda especial." } },
+        "f6": { "type": "feature", "settings": { "feature_name": "Creado con amor",            "feature_desc": "Cada pedido se revisa a mano antes de enviarse para garantizar que sea perfecto para ustedes." } },
+        "f7": { "type": "feature", "settings": { "feature_name": "Satisfacción garantizada",   "feature_desc": "Si la prenda no cumple sus expectativas, la rehacemos. Su historia merece ser perfecta." } },
+        "f8": { "type": "feature", "settings": { "feature_name": "Estilo actual",              "feature_desc": "Diseños modernos inspirados en las últimas tendencias de moda. Luce su historia con estilo." } }
+      },
+      "blocks_order": ["f1","f2","f3","f4","f5","f6","f7","f8"],
+      "settings": {
+        "label": "Nuestra promesa",
+        "title": "¿Por qué <em>MAVIFE</em>?",
+        "subtitle": "Cada detalle está pensado para que sus prendas sean tan especiales como su historia."
+      }
+    },
+    "mavife_stats": {
+      "type": "stats-bar",
+      "blocks": {
+        "s1": { "type": "stat", "settings": { "stat_number": "2400", "stat_label": "Parejas satisfechas" } },
+        "s2": { "type": "stat", "settings": { "stat_number": "98",   "stat_label": "% valoración positiva" } },
+        "s3": { "type": "stat", "settings": { "stat_number": "150",  "stat_label": "Diseños en catálogo" } },
+        "s4": { "type": "stat", "settings": { "stat_number": "7",    "stat_label": "Días de envío medio" } }
+      },
+      "blocks_order": ["s1","s2","s3","s4"]
+    },
+    "mavife_testimonials": {
+      "type": "testimonials",
+      "blocks": {
+        "t1": { "type": "testimonial", "settings": { "testi_text": "Las camisetas llegaron perfectas, exactamente como las habíamos diseñado. ¡Las llevamos en nuestro aniversario y todo el mundo nos preguntaba dónde las habíamos comprado!", "author_name": "Laura & Miguel", "author_initials": "LM", "author_location": "Madrid · 5.° aniversario" } },
+        "t2": { "type": "testimonial", "settings": { "testi_text": "Pedimos el pack completo de gorras y camisetas para nuestras vacaciones. La calidad es increíble y el proceso de personalización fue facilísimo. Repetiremos seguro.", "author_name": "Ana & Carlos", "author_initials": "AC", "author_location": "Barcelona · Vacaciones verano" } },
+        "t3": { "type": "testimonial", "settings": { "testi_text": "Un regalo de cumpleaños original y con mucho significado. Mi pareja se emocionó al ver las coordenadas de donde nos conocimos bordadas en las gorras. Absolutamente precioso.", "author_name": "Sofía & David", "author_initials": "SD", "author_location": "Sevilla · Regalo sorpresa" } },
+        "t4": { "type": "testimonial", "settings": { "testi_text": "Repetiremos seguro. La atención al cliente es excelente, nos guiaron en todo el proceso de diseño. La calidad de los materiales supera completamente las expectativas.", "author_name": "Marta & Javi", "author_initials": "MJ", "author_location": "Valencia · Segundo pedido" } }
+      },
+      "blocks_order": ["t1","t2","t3","t4"],
+      "settings": {
+        "label": "Testimonios",
+        "title": "Lo que dicen<br><em>nuestras parejas</em>"
+      }
+    },
+    "mavife_cta": {
+      "type": "cta-final",
+      "settings": {
+        "label": "Comiencen hoy",
+        "title": "Empieza a diseñar<br>su próxima historia",
+        "subtitle": "Crea hoy mismo una prenda única que represente su conexión.\nPorque cada historia merece ser llevada.",
+        "cta_text": "Comenzar personalización",
+        "cta_note": "Envíos en 7-10 días · Satisfacción garantizada · Materiales premium"
       }
     }
   },
   "order": [
-    "hero_jVaWmY",
-    "product_list_fa6P9H"
+    "mavife_hero",
+    "mavife_collection",
+    "mavife_process",
+    "mavife_philosophy",
+    "mavife_gallery",
+    "mavife_features",
+    "mavife_stats",
+    "mavife_testimonials",
+    "mavife_cta"
   ]
 }

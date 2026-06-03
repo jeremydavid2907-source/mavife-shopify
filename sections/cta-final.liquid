@@ -1,0 +1,30 @@
+<section class="cta-final" id="contacto">
+  <div class="cta-bg-ph"></div>
+  <div class="cta-deco-1"></div>
+  <div class="cta-deco-2"></div>
+  <div class="cta-final-inner">
+    <p class="cta-final-label reveal">{{ section.settings.label }}</p>
+    <h2 class="cta-final-title reveal">{{ section.settings.title }}</h2>
+    <p class="cta-final-sub reveal">{{ section.settings.subtitle }}</p>
+    <a href="{{ section.settings.cta_url | default: '/collections/all' }}" class="btn-cta-big reveal">
+      {{ section.settings.cta_text }}
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+    <p class="cta-note reveal">{{ section.settings.cta_note }}</p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "CTA Final MAVIFE",
+  "settings": [
+    { "type": "text",     "id": "label",    "label": "Etiqueta",      "default": "Comiencen hoy" },
+    { "type": "html",     "id": "title",    "label": "Título",         "default": "Empieza a diseñar<br>su próxima historia" },
+    { "type": "textarea", "id": "subtitle", "label": "Subtítulo",      "default": "Crea hoy mismo una prenda única que represente su conexión.\nPorque cada historia merece ser llevada." },
+    { "type": "text",     "id": "cta_text", "label": "Texto botón",    "default": "Comenzar personalización" },
+    { "type": "url",      "id": "cta_url",  "label": "URL botón" },
+    { "type": "text",     "id": "cta_note", "label": "Nota bajo botón","default": "Envíos en 7-10 días · Satisfacción garantizada · Materiales premium" }
+  ],
+  "presets": [{ "name": "CTA Final MAVIFE" }]
+}
+{% endschema %}

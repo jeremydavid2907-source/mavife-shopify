@@ -1,0 +1,66 @@
+<section class="process" id="personalizar">
+  <div class="section-inner">
+    <div class="process-header">
+      <p class="section-label reveal">{{ section.settings.label }}</p>
+      <h2 class="section-title reveal">{{ section.settings.title }}</h2>
+      <p class="section-sub reveal">{{ section.settings.subtitle }}</p>
+    </div>
+
+    <div class="steps">
+      {%- for block in section.blocks -%}
+        <div class="step reveal stagger-{{ forloop.index }}" {{ block.shopify_attributes }}>
+          <div class="step-num">
+            {%- case forloop.index -%}
+              {%- when 1 -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.57a1 1 0 00.99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.57a2 2 0 00-1.34-2.23z"/></svg>
+              {%- when 2 -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              {%- when 3 -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            {%- endcase -%}
+            <span class="step-num-label">0{{ forloop.index }}</span>
+          </div>
+          <h3 class="step-title">{{ block.settings.step_title }}</h3>
+          <p class="step-desc">{{ block.settings.step_desc }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    <div class="process-cta reveal">
+      <a href="{{ section.settings.cta_url | default: '/collections/all' }}" class="btn-primary" style="display:inline-flex;">
+        {{ section.settings.cta_text }}
+      </a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Cómo funciona MAVIFE",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Etiqueta", "default": "Cómo funciona" },
+    { "type": "html", "id": "title", "label": "Título", "default": "Tan sencillo como<br><em>su amor</em>" },
+    { "type": "text", "id": "subtitle", "label": "Subtítulo", "default": "Tres pasos para crear la prenda que los representa." },
+    { "type": "text", "id": "cta_text", "label": "Botón CTA", "default": "Comenzar ahora →" },
+    { "type": "url",  "id": "cta_url",  "label": "URL botón CTA" }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Paso",
+      "settings": [
+        { "type": "text", "id": "step_title", "label": "Título del paso", "default": "Elige tu prenda" },
+        { "type": "textarea", "id": "step_desc", "label": "Descripción", "default": "Selecciona entre nuestra colección de camisetas, camisas, gorras, sudaderas y más accesorios." }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Cómo funciona MAVIFE",
+    "blocks": [
+      { "type": "step", "settings": { "step_title": "Elige tu prenda", "step_desc": "Selecciona entre nuestra colección de camisetas, camisas, gorras, sudaderas y más accesorios." } },
+      { "type": "step", "settings": { "step_title": "Agreguen su esencia", "step_desc": "Nombres, fechas especiales, coordenadas del lugar donde se conocieron, frases que los definen." } },
+      { "type": "step", "settings": { "step_title": "Reciban su historia", "step_desc": "Una prenda única creada exclusivamente para ustedes, enviada directamente a su puerta." } }
+    ]
+  }]
+}
+{% endschema %}

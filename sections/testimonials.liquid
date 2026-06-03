@@ -1,0 +1,73 @@
+<section class="testimonials">
+  <div class="section-inner">
+    <div class="testimonials-header">
+      <p class="section-label reveal">{{ section.settings.label }}</p>
+      <h2 class="section-title reveal">{{ section.settings.title }}</h2>
+    </div>
+
+    <div class="testi-carousel reveal">
+      <div class="testi-track" id="testiTrack">
+        {%- for block in section.blocks -%}
+          <div class="testi-card" {{ block.shopify_attributes }}>
+            <div class="testi-stars">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p class="testi-text">{{ block.settings.testi_text }}</p>
+            <div class="testi-author">
+              <div class="testi-avatar av-{{ forloop.index }}">{{ block.settings.author_initials }}</div>
+              <div>
+                <div class="testi-name">{{ block.settings.author_name }}</div>
+                <div class="testi-location">{{ block.settings.author_location }}</div>
+              </div>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+
+    <div class="testi-controls">
+      {%- for block in section.blocks -%}
+        <div class="testi-dot{% if forloop.first %} active{% endif %}" data-idx="{{ forloop.index0 }}"></div>
+      {%- endfor -%}
+    </div>
+    <div class="testi-arrows">
+      <div class="testi-arrow" id="testiPrev">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      </div>
+      <div class="testi-arrow" id="testiNext">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonios MAVIFE",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Etiqueta", "default": "Testimonios" },
+    { "type": "html", "id": "title", "label": "Título",   "default": "Lo que dicen<br><em>nuestras parejas</em>" }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonio",
+      "settings": [
+        { "type": "textarea", "id": "testi_text",       "label": "Texto del testimonio", "default": "Las camisetas llegaron perfectas, exactamente como las habíamos diseñado. ¡Las llevamos en nuestro aniversario y todo el mundo nos preguntaba dónde las habíamos comprado!" },
+        { "type": "text",     "id": "author_name",      "label": "Nombre",               "default": "Laura & Miguel" },
+        { "type": "text",     "id": "author_initials",  "label": "Iniciales (avatar)",   "default": "LM" },
+        { "type": "text",     "id": "author_location",  "label": "Ubicación y ocasión",  "default": "Madrid · 5.° aniversario" }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Testimonios MAVIFE",
+    "blocks": [
+      { "type": "testimonial", "settings": { "testi_text": "Las camisetas llegaron perfectas, exactamente como las habíamos diseñado. ¡Las llevamos en nuestro aniversario y todo el mundo nos preguntaba dónde las habíamos comprado!", "author_name": "Laura & Miguel", "author_initials": "LM", "author_location": "Madrid · 5.° aniversario" } },
+      { "type": "testimonial", "settings": { "testi_text": "Pedimos el pack completo de gorras y camisetas para nuestras vacaciones. La calidad es increíble y el proceso de personalización fue facilísimo. Repetiremos seguro.", "author_name": "Ana & Carlos", "author_initials": "AC", "author_location": "Barcelona · Vacaciones verano" } },
+      { "type": "testimonial", "settings": { "testi_text": "Un regalo de cumpleaños original y con mucho significado. Mi pareja se emocionó al ver las coordenadas de donde nos conocimos bordadas en las gorras. Absolutamente precioso.", "author_name": "Sofía & David", "author_initials": "SD", "author_location": "Sevilla · Regalo sorpresa" } },
+      { "type": "testimonial", "settings": { "testi_text": "Repetiremos seguro. La atención al cliente es excelente, nos guiaron en todo el proceso de diseño. La calidad de los materiales supera completamente las expectativas.", "author_name": "Marta & Javi", "author_initials": "MJ", "author_location": "Valencia · Segundo pedido" } }
+    ]
+  }]
+}
+{% endschema %}

@@ -1,0 +1,59 @@
+<section class="features">
+  <div class="section-inner">
+    <div class="features-header">
+      <p class="section-label reveal">{{ section.settings.label }}</p>
+      <h2 class="section-title reveal">{{ section.settings.title }}</h2>
+      <p class="section-sub reveal">{{ section.settings.subtitle }}</p>
+    </div>
+
+    <div class="features-grid">
+      {%- for block in section.blocks -%}
+        <div class="feature-card reveal stagger-{{ forloop.index0 | modulo: 4 | plus: 1 }}" {{ block.shopify_attributes }}>
+          <div class="feature-icon">{{ block.settings.icon }}</div>
+          <h3 class="feature-name">{{ block.settings.feature_name }}</h3>
+          <p class="feature-desc">{{ block.settings.feature_desc }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Características MAVIFE",
+  "settings": [
+    { "type": "text", "id": "label",    "label": "Etiqueta",  "default": "Nuestra promesa" },
+    { "type": "html", "id": "title",    "label": "Título",    "default": "¿Por qué <em>MAVIFE</em>?" },
+    { "type": "text", "id": "subtitle", "label": "Subtítulo", "default": "Cada detalle está pensado para que sus prendas sean tan especiales como su historia." }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Característica",
+      "settings": [
+        {
+          "type": "html",
+          "id": "icon",
+          "label": "Icono SVG",
+          "default": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><polygon points=\"12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2\"/></svg>"
+        },
+        { "type": "text",     "id": "feature_name", "label": "Nombre",      "default": "Diseños 100% exclusivos" },
+        { "type": "textarea", "id": "feature_desc", "label": "Descripción", "default": "Cada prenda es única. Nadie más tendrá el mismo diseño que ustedes." }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Características MAVIFE",
+    "blocks": [
+      { "type": "feature", "settings": { "feature_name": "Diseños 100% exclusivos", "feature_desc": "Cada prenda es única. Nadie más tendrá el mismo diseño que ustedes.", "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><polygon points=\"12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2\"/></svg>" } },
+      { "type": "feature", "settings": { "feature_name": "Personalización completa", "feature_desc": "Nombres, fechas, frases, coordenadas, ilustraciones — lo que queráis, como queráis.", "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path d=\"M12 20h9\"/><path d=\"M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z\"/></svg>" } },
+      { "type": "feature", "settings": { "feature_name": "Materiales premium", "feature_desc": "Algodón orgánico, lino natural y tejidos seleccionados para la máxima comodidad y durabilidad.", "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path d=\"M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.57a1 1 0 00.99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.57a2 2 0 00-1.34-2.23z\"/></svg>" } },
+      { "type": "feature", "settings": { "feature_name": "Envíos en 7-10 días", "feature_desc": "Recibirán su prenda personalizada en menos de dos semanas desde que la diseñen.", "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><polyline points=\"12 6 12 12 16 14\"/></svg>" } },
+      { "type": "feature", "settings": { "feature_name": "El regalo perfecto", "feature_desc": "Aniversarios, San Valentín, cumpleaños, viajes… cualquier momento merece una prenda especial.", "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path d=\"M20 12V22H4V12\"/><path d=\"M22 7H2v5h20V7z\"/><path d=\"M12 22V7\"/><path d=\"M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z\"/><path d=\"M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z\"/></svg>" } },
+      { "type": "feature", "settings": { "feature_name": "Creado con amor", "feature_desc": "Cada pedido se revisa a mano antes de enviarse para garantizar que sea perfecto para ustedes.", "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path d=\"M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z\"/></svg>" } },
+      { "type": "feature", "settings": { "feature_name": "Satisfacción garantizada", "feature_desc": "Si la prenda no cumple sus expectativas, la rehacemos. Su historia merece ser perfecta.", "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path d=\"M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\"/></svg>" } },
+      { "type": "feature", "settings": { "feature_name": "Estilo actual", "feature_desc": "Diseños modernos inspirados en las últimas tendencias de moda. Luce su historia con estilo.", "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path d=\"M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z\"/><circle cx=\"12\" cy=\"10\" r=\"3\"/></svg>" } }
+    ]
+  }]
+}
+{% endschema %}

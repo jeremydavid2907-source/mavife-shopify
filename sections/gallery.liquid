@@ -1,0 +1,74 @@
+<section class="gallery" id="galeria">
+  <div class="gallery-header">
+    <p class="section-label reveal">{{ section.settings.label }}</p>
+    <h2 class="section-title reveal">{{ section.settings.title }}</h2>
+    <p class="section-sub reveal">{{ section.settings.subtitle }}</p>
+  </div>
+
+  <div class="gallery-grid">
+    {%- for block in section.blocks -%}
+      <div class="gallery-item reveal stagger-{{ forloop.index0 | modulo: 3 | plus: 1 }}" {{ block.shopify_attributes }}>
+        {%- if block.settings.image != blank -%}
+          <img
+            src="{{ block.settings.image | image_url: width: 900 }}"
+            alt="{{ block.settings.caption | escape }}"
+            loading="lazy"
+            style="width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease-out);"
+          />
+        {%- else -%}
+          <div class="gallery-ph gph-{{ forloop.index }}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Insertar foto</span>
+          </div>
+        {%- endif -%}
+        <div class="gallery-overlay">
+          <span class="gallery-overlay-text">{{ block.settings.caption }}</span>
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+
+  <div class="gallery-cta reveal">
+    <a href="{{ section.settings.instagram_url | default: '#' }}" class="btn-outline-dark" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      {{ section.settings.cta_text }}
+    </a>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Galería MAVIFE",
+  "settings": [
+    { "type": "text", "id": "label",    "label": "Etiqueta", "default": "Galería" },
+    { "type": "html", "id": "title",    "label": "Título",   "default": "Historias reales,<br><em>prendas únicas</em>" },
+    { "type": "text", "id": "subtitle", "label": "Subtítulo","default": "Cada imagen es una pareja. Cada prenda, una historia." },
+    { "type": "url",  "id": "instagram_url", "label": "URL Instagram" },
+    { "type": "text", "id": "cta_text", "label": "Texto botón", "default": "Ver más en Instagram" }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Imagen",
+      "settings": [
+        { "type": "image_picker", "id": "image",   "label": "Imagen" },
+        { "type": "text",         "id": "caption", "label": "Texto al pasar el mouse", "default": "Su historia" }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Galería MAVIFE",
+    "blocks": [
+      { "type": "image", "settings": { "caption": "Su historia" } },
+      { "type": "image", "settings": { "caption": "Camisetas personalizadas" } },
+      { "type": "image", "settings": { "caption": "Gorras bordadas" } },
+      { "type": "image", "settings": { "caption": "Cada detalle importa" } },
+      { "type": "image", "settings": { "caption": "Colección Verano 2026" } },
+      { "type": "image", "settings": { "caption": "Camisa Lino Couple" } },
+      { "type": "image", "settings": { "caption": "Pack Parejas" } },
+      { "type": "image", "settings": { "caption": "Momentos que perduran" } },
+      { "type": "image", "settings": { "caption": "Accesorios personalizados" } }
+    ]
+  }]
+}
+{% endschema %}

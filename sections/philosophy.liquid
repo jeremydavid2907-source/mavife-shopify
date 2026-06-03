@@ -1,0 +1,45 @@
+<section class="philosophy" id="nosotros">
+  <div class="philosophy-bg-ph"></div>
+  {%- if section.settings.bg_image != blank -%}
+    <img
+      src="{{ section.settings.bg_image | image_url: width: 1920 }}"
+      alt=""
+      style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.3;pointer-events:none;"
+    />
+  {%- endif -%}
+  <div class="philo-deco-1"></div>
+  <div class="philo-deco-2"></div>
+
+  <div class="philosophy-inner">
+    <div class="philosophy-line reveal"></div>
+    <blockquote class="philosophy-quote reveal">{{ section.settings.quote }}</blockquote>
+    <p class="philosophy-sub reveal">{{ section.settings.sub_text }}</p>
+    <a href="{{ section.settings.cta_url | default: '#personalizar' }}" class="btn-outline reveal" style="display:inline-flex;">
+      {{ section.settings.cta_text }}
+    </a>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Filosofía MAVIFE",
+  "settings": [
+    {
+      "type": "html",
+      "id": "quote",
+      "label": "Cita (acepta HTML: <strong> <br>)",
+      "default": "\"No vendemos únicamente ropa.<br>Creamos <strong>recuerdos que pueden llevar puestos</strong>.\""
+    },
+    {
+      "type": "textarea",
+      "id": "sub_text",
+      "label": "Texto secundario",
+      "default": "Cada prenda MAVIFE nace de una historia real. De una fecha que no olvidan, de unas coordenadas que lo cambiaron todo, de un nombre que quieren llevar cerca."
+    },
+    { "type": "image_picker", "id": "bg_image", "label": "Imagen de fondo (opcional)" },
+    { "type": "text", "id": "cta_text", "label": "Texto botón", "default": "Crear su prenda" },
+    { "type": "url",  "id": "cta_url",  "label": "URL botón" }
+  ],
+  "presets": [{ "name": "Filosofía MAVIFE" }]
+}
+{% endschema %}

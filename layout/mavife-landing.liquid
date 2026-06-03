@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>
+  {%- if template == 'index' -%}
+    {{ shop.name }}{% if shop.description != blank %} – {{ shop.description }}{% endif %}
+  {%- else -%}
+    {{ page_title }} – {{ shop.name }}
+  {%- endif -%}
+</title>
+{%- if page_description -%}
+  <meta name="description" content="{{ page_description | escape }}" />
+{%- elsif shop.description -%}
+  <meta name="description" content="{{ shop.description | escape }}" />
+{%- endif -%}
+
+{{ content_for_header }}
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+{{ 'mavife-landing.css' | asset_url | stylesheet_tag }}
+</head>
+<body>
+
+<!-- SPLASH LOADER -->
+<div class="splash" data-splash>
+  <div class="splash-logo">
+    {%- if settings.logo != blank -%}
+      <img src="{{ settings.logo | image_url: width: 220 }}" alt="{{ shop.name }}" class="logo-img logo-img--white" />
+    {%- else -%}
+      <span style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(2rem,6vw,3.5rem);font-weight:600;color:#fff;letter-spacing:0.18em;">{{ shop.name }}</span>
+    {%- endif -%}
+  </div>
+  <div class="splash-bar"></div>
+  <div class="splash-tagline">{{ settings.splash_tagline | default: 'Ropa Personalizada para Parejas' }}</div>
+</div>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor">
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+</div>
+
+<!-- NAV -->
+{% section 'mavife-header' %}
+
+<!-- MENÚ MÓVIL -->
+<div class="nav-mobile" id="mobileMenu">
+  <span class="nav-mobile-close" id="mobileClose">&#x2715;</span>
+  <a href="#coleccion" class="mobile-link">Colección</a>
+  <a href="#personalizar" class="mobile-link">Personalizar</a>
+  <a href="#galeria" class="mobile-link">Galería</a>
+  <a href="#nosotros" class="mobile-link">Nosotros</a>
+  <a href="#contacto" class="mobile-link">Contacto</a>
+</div>
+
+<main>
+  {{ content_for_layout }}
+</main>
+
+{% section 'mavife-footer' %}
+
+<script src="{{ 'mavife.js' | asset_url }}" defer></script>
+</body>
+</html>

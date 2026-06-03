@@ -1,0 +1,36 @@
+<nav class="nav" id="nav">
+  <a href="{{ routes.root_url }}" class="nav-logo">
+    {%- if settings.logo != blank -%}
+      <img src="{{ settings.logo | image_url: width: 160 }}" alt="{{ shop.name }}" class="logo-img" />
+    {%- else -%}
+      <span style="font-family:'Playfair Display',Georgia,serif;font-size:1.3rem;font-weight:600;letter-spacing:0.15em;">{{ shop.name }}</span>
+    {%- endif -%}
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#coleccion">{{ section.settings.link1_label }}</a></li>
+    <li><a href="#personalizar">{{ section.settings.link2_label }}</a></li>
+    <li><a href="#galeria">{{ section.settings.link3_label }}</a></li>
+    <li><a href="#nosotros">{{ section.settings.link4_label }}</a></li>
+  </ul>
+
+  <a href="{{ section.settings.cta_url | default: '#coleccion' }}" class="nav-cta">{{ section.settings.cta_label }}</a>
+
+  <button class="nav-hamburger" id="hamburger" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+{% schema %}
+{
+  "name": "Nav MAVIFE",
+  "settings": [
+    { "type": "text", "id": "link1_label", "label": "Enlace 1", "default": "Colección" },
+    { "type": "text", "id": "link2_label", "label": "Enlace 2", "default": "Personalizar" },
+    { "type": "text", "id": "link3_label", "label": "Enlace 3", "default": "Galería" },
+    { "type": "text", "id": "link4_label", "label": "Enlace 4", "default": "Nosotros" },
+    { "type": "text", "id": "cta_label", "label": "Texto botón CTA", "default": "Ver colección" },
+    { "type": "url",  "id": "cta_url",   "label": "URL botón CTA" }
+  ]
+}
+{% endschema %}

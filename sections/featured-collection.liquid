@@ -1,0 +1,103 @@
+<section class="collection" id="coleccion">
+  <div class="section-inner">
+    <div class="collection-header">
+      <div>
+        <p class="section-label reveal">{{ section.settings.label }}</p>
+        <h2 class="section-title reveal">{{ section.settings.title }}</h2>
+        <p class="section-sub reveal">{{ section.settings.subtitle }}</p>
+      </div>
+      <a href="{{ section.settings.view_all_url | default: '/collections/all' }}" class="btn-outline-dark reveal">
+        Ver toda la colección
+      </a>
+    </div>
+
+    <div class="products-grid">
+      {%- assign col = collections[section.settings.collection] -%}
+      {%- if col != blank and col.products.size > 0 -%}
+        {%- for product in col.products limit: 6 -%}
+          {%- assign stagger = forloop.index0 | modulo: 3 | plus: 1 -%}
+          <article class="product-card reveal stagger-{{ stagger }}">
+            <div class="product-img">
+              {%- if product.featured_image -%}
+                <img
+                  src="{{ product.featured_image | image_url: width: 600 }}"
+                  alt="{{ product.featured_image.alt | default: product.title | escape }}"
+                  loading="lazy"
+                  style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease-out);"
+                />
+              {%- else -%}
+                <div class="product-img-ph ph-{{ forloop.index }}">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.57a1 1 0 00.99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.57a2 2 0 00-1.34-2.23z"/></svg>
+                  <span>{{ product.title }}</span>
+                </div>
+              {%- endif -%}
+              {%- if product.tags contains 'nuevo' or product.tags contains 'new' -%}
+                <span class="product-tag gold">Nuevo</span>
+              {%- elsif product.tags contains 'popular' -%}
+                <span class="product-tag gold">Popular</span>
+              {%- elsif product.tags contains 'verano' -%}
+                <span class="product-tag">Verano</span>
+              {%- elsif product.tags contains 'mas-vendido' -%}
+                <span class="product-tag">Más vendido</span>
+              {%- endif -%}
+            </div>
+            <div class="product-body">
+              <h3 class="product-name">{{ product.title }}</h3>
+              <p class="product-desc">{{ product.description | strip_html | truncate: 100 }}</p>
+              <div class="product-footer">
+                <div class="product-price">
+                  {{ product.price_min | money }}
+                  <span>desde</span>
+                </div>
+                <a href="{{ product.url }}" class="btn-product">Personalizar</a>
+              </div>
+            </div>
+          </article>
+        {%- endfor -%}
+      {%- else -%}
+        <!-- Placeholder cuando no hay colección configurada -->
+        {%- assign placeholders = "Camiseta 'Nuestra Historia',Camisa Lino Couple,Gorra Personalizada Duo,Conjunto Verano Couple,Tote Bag Personalizada,Pack Parejas Completo" | split: "," -%}
+        {%- assign placeholder_prices = "39,99,54,99,24,99,79,99,19,99,89,99" | split: "," -%}
+        {%- assign placeholder_tags = "gold,verano,gold,verano,gold,default" | split: "," -%}
+        {%- assign placeholder_tag_labels = "Nuevo,Verano,Nuevo,Verano,Popular,Más vendido" | split: "," -%}
+        {%- for i in (1..6) -%}
+          {%- assign idx = forloop.index0 -%}
+          {%- assign stagger = forloop.index0 | modulo: 3 | plus: 1 -%}
+          <article class="product-card reveal stagger-{{ stagger }}">
+            <div class="product-img">
+              <div class="product-img-ph ph-{{ forloop.index }}">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.57a1 1 0 00.99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.57a2 2 0 00-1.34-2.23z"/></svg>
+                <span>Insertar imagen de producto</span>
+              </div>
+              {%- assign tag_class = placeholder_tags[idx] -%}
+              {%- assign tag_label = placeholder_tag_labels[idx] -%}
+              <span class="product-tag {{ tag_class }}">{{ tag_label }}</span>
+            </div>
+            <div class="product-body">
+              <h3 class="product-name">{{ placeholders[idx] }}</h3>
+              <p class="product-desc">Personalizable con sus nombres y fecha especial. Selecciona la colección en el editor para mostrar productos reales.</p>
+              <div class="product-footer">
+                <div class="product-price">{{ placeholder_prices[idx] }}€<span>desde</span></div>
+                <a href="#personalizar" class="btn-product">Personalizar</a>
+              </div>
+            </div>
+          </article>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Colección MAVIFE",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Etiqueta", "default": "Colección Verano 2026" },
+    { "type": "html", "id": "title", "label": "Título (acepta <br><em>)", "default": "Prendas que cuentan<br><em>su historia</em>" },
+    { "type": "text", "id": "subtitle", "label": "Subtítulo", "default": "Diseños exclusivos para parejas que quieren compartir más que momentos — quieren compartir su estilo." },
+    { "type": "collection", "id": "collection", "label": "Colección de productos" },
+    { "type": "url", "id": "view_all_url", "label": "URL 'Ver toda la colección'" }
+  ],
+  "presets": [{ "name": "Colección MAVIFE" }]
+}
+{% endschema %}

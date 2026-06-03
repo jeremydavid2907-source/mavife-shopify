@@ -1,0 +1,35 @@
+<div class="stats-bar">
+  <div class="stats-inner">
+    {%- for block in section.blocks -%}
+      <div class="stat-item reveal stagger-{{ forloop.index }}" {{ block.shopify_attributes }}>
+        <div class="stat-num" data-count="{{ block.settings.stat_number }}">0</div>
+        <div class="stat-label">{{ block.settings.stat_label }}</div>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Stats Bar MAVIFE",
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Estadística",
+      "settings": [
+        { "type": "text", "id": "stat_number", "label": "Número (sin símbolo)", "default": "2400" },
+        { "type": "text", "id": "stat_label",  "label": "Etiqueta",             "default": "Parejas satisfechas" }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Stats Bar MAVIFE",
+    "blocks": [
+      { "type": "stat", "settings": { "stat_number": "2400", "stat_label": "Parejas satisfechas" } },
+      { "type": "stat", "settings": { "stat_number": "98",   "stat_label": "% valoración positiva" } },
+      { "type": "stat", "settings": { "stat_number": "150",  "stat_label": "Diseños en catálogo" } },
+      { "type": "stat", "settings": { "stat_number": "7",    "stat_label": "Días de envío medio" } }
+    ]
+  }]
+}
+{% endschema %}
